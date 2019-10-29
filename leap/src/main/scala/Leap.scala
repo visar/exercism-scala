@@ -1,8 +1,4 @@
 object Leap {
-  def leapYear(year: Int): Boolean = {
-    if (year % 400 == 0) true
-    else if (year % 100  == 0) false
-    else if (year % 4 == 0) true
-    else false
-  }
+  def leapYear(year: Int): Boolean =
+    (year % 400 == 0) || (year % 100 != 0 && year % 4 == 0)
 }
