@@ -1,22 +1,17 @@
 import scala.annotation.tailrec
 
-sealed trait NumberType
-
-case object Perfect extends NumberType
-case object Abundant extends NumberType
-case object Deficient extends NumberType
+object NumberType extends Enumeration {
+  val Deficient = Value(-1)
+  val Perfect = Value(0)
+  val Abundant = Value(1)
+}
 
 object PerfectNumbers {
-  def classify(num: Int): Either[String, NumberType] = {
+  def classify(num: Int): Either[String, NumberType.Value] = {
     if (num <= 0)
       Left("Classification is only possible for natural numbers.")
     else {
-      val divs = divisors(num)
-      if (divs.sum == num)
-        Right(Perfect)
-      else if (divs.sum > num)
-        Right(Abundant)
-      else Right(Deficient)
+      Right(NumberType(divisors(num).sum compare num))
     }
   }
 
