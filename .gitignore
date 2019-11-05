@@ -1,6 +1,7 @@
 *.class
 .idea
-target
 .exercism
 .metals
 .bloop
+target
+project
