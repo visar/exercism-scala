@@ -1,5 +1,5 @@
 sealed trait Planet {
-  val orbitalPeriod: Double
+  def orbitalPeriod: Double
 }
 
 object Earth extends Planet {
