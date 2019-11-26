@@ -1,6 +1,8 @@
+import scala.collection.SortedMap
+
 class GradeSchool {
-  type DB = Map[Int, Seq[String]]
-  var DataBase: DB = Map[Int, Seq[String]]()
+  type DB = SortedMap[Int, Seq[String]]
+  var DataBase: SortedMap[Int, Seq[String]] = SortedMap[Int, Seq[String]]()
 
   def add(name: String, g: Int): DB = {
     DataBase += (g -> (DataBase.getOrElse(g, Seq()) ++ Seq(name)))
@@ -11,5 +13,5 @@ class GradeSchool {
 
   def grade(g: Int): Seq[String] = DataBase.getOrElse(g, Seq())
 
-  def sorted: DB = Map(DataBase.toSeq.sortBy(_._1): _*).mapValues(_.sorted)
+  def sorted: DB = DataBase.mapValues(_.sorted)
 }
