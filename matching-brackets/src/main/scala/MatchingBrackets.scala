@@ -1,22 +1,27 @@
 import scala.annotation.tailrec
 
 object MatchingBrackets {
-  def isPaired(brackets: String): Boolean = isPaired(brackets.toList, List[Char]())
+  def isPaired(brackets: String): Boolean =
+    isPaired(brackets.toList, List[Char]())
 
   @tailrec
-  def isPaired(brackets: List[Char], stack: List[Char]): Boolean = brackets match {
-    case head :: tail =>
-      if (Seq('[', '(', '{').contains(head))
-        isPaired(tail, head :: stack)
-      else if (Seq(']', ')', '}').contains(head))
-        stack.nonEmpty && stack.head == inverse(head) && isPaired(tail, stack.tail)
-      else
-        isPaired(tail, stack)
-    case Nil =>
-      stack.isEmpty
-  }
+  def isPaired(brackets: List[Char], stack: List[Char]): Boolean =
+    brackets match {
+      case head :: tail =>
+        if (openingBrackets.contains(head))
+          isPaired(tail, head :: stack)
+        else if (closingBrackets.contains(head))
+          stack.headOption.contains(inverse(head)) && isPaired(tail, stack.tail)
+        else
+          isPaired(tail, stack)
+      case Nil =>
+        stack.isEmpty
+    }
 
-  private def inverse(bracket: Char): Char = bracket match {
+  private val openingBrackets: Seq[Char] = Seq('[', '(', '{')
+  private val closingBrackets: Seq[Char] = Seq(']', ')', '}')
+
+  private val inverse: Char => Char = {
     case ']' => '['
     case ')' => '('
     case '}' => '{'
