@@ -3,9 +3,5 @@ object Hamming {
     if (first.length != second.length)
       None
     else
-      Some(first.zip(second).foldLeft(0) {
-        (acc: Int, pair: (Char, Char)) =>
-          if (pair._1 != pair._2) acc + 1
-          else acc
-      })
+      Some(first.zip(second).count((pair: (Char, Char)) => pair._1 != pair._2))
 }
