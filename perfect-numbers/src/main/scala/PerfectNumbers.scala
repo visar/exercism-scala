@@ -13,16 +13,6 @@ object PerfectNumbers {
     else
       Right(NumberType(divisors(num).sum compare num))
 
-  def divisors(num: Int): List[Int] = {
-    @tailrec
-    def divisors(num: Int, current: Int, divs: List[Int]): List[Int] =
-      if (current == num)
-        divs
-      else if (num % current == 0)
-        divisors(num, current + 1, current :: divs)
-      else
-        divisors(num, current + 1, divs)
-
-    divisors(num, 1, List[Int]())
-  }
+  def divisors(num: Int): List[Int] =
+    (1 to (num / 2)).filter(num % _ == 0).toList
 }
