@@ -1,3 +1,5 @@
+import Function.uncurried
+
 object SpiralMatrix {
   def spiralMatrix(size: Int): List[List[Int]] = {
     val world: World = World.create(size)
@@ -10,13 +12,17 @@ object SpiralMatrix {
   object World {
     def create(size: Int): World =
       (1 to size * size).foldLeft(World(matrix = Array.ofDim[Int](size, size))) {
-        (world, number) =>
-          world.matrix(world.position.row)(world.position.col) = number
+        uncurried {
+          implicit world =>
+            number => {
+              world.matrix(world.position.row)(world.position.col) = number
 
-          world.position.next(world) match {
-            case (position, direction) =>
-              world.copy(position = position, direction = direction)
-          }
+              world.position.next match {
+                case (position, direction) =>
+                  world.copy(position = position, direction = direction)
+              }
+            }
+        }
       }
   }
 
@@ -52,7 +58,7 @@ object SpiralMatrix {
   }
 
   case class Position(row: Int, col: Int) {
-    def next(world: World): (Position, Direction) = {
+    def next(implicit world: World): (Position, Direction) = {
       if (row + world.direction.dx >= 0
         && row + world.direction.dx < world.matrix.length
         && col + world.direction.dy >= 0
