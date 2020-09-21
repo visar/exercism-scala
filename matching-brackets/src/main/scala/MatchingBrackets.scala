@@ -25,6 +25,6 @@ object MatchingBrackets {
     case ']' => '['
     case ')' => '('
     case '}' => '{'
-    case x => x
+    case x   => x
   }
 }

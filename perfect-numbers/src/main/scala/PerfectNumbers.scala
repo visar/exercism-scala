@@ -2,8 +2,8 @@ import scala.annotation.tailrec
 
 object NumberType extends Enumeration {
   val Deficient = Value(-1)
-  val Perfect = Value(0)
-  val Abundant = Value(1)
+  val Perfect   = Value(0)
+  val Abundant  = Value(1)
 }
 
 object PerfectNumbers {

@@ -30,12 +30,10 @@ case class SimpleSetCache(cache: mutable.HashSet[String]) extends Cache[String] 
 
   def generate(): String = {
     var candidate: String = raw()
-    while (seen(candidate))
-      candidate = raw()
+    while (seen(candidate)) candidate = raw()
 
     cache += candidate
 
     candidate
   }
 }
-

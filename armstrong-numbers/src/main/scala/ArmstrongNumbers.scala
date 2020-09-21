@@ -2,9 +2,9 @@ import scala.annotation.tailrec
 
 object ArmstrongNumbers {
   def isArmstrongNumber(input: Int): Boolean = {
-    val digs = digits(input)
+    val digs           = digits(input)
     val numberOfDigits = digs.length
-    val checkSum = digs.fold(0)(_ + Math.pow(_, numberOfDigits).toInt)
+    val checkSum       = digs.fold(0)(_ + Math.pow(_, numberOfDigits).toInt)
 
     checkSum == input
   }

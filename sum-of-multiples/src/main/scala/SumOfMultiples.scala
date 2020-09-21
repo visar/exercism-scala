@@ -4,4 +4,3 @@ object SumOfMultiples {
       Stream.from(1).takeWhile(_ * factor < limit).map(_ * factor)
     }.sum
 }
-

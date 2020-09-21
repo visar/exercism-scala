@@ -28,7 +28,9 @@ object Statement {
 
   object YellingQuestion {
     def create(statement: String): Statement =
-      if (statement.toUpperCase == statement && statement.trim.endsWith("?") && statement.intersect('A' to 'Z').nonEmpty)
+      if (statement.toUpperCase == statement && statement.trim.endsWith("?") && statement
+            .intersect('A' to 'Z')
+            .nonEmpty)
         YellingQuestion(statement)
       else
         Yelling.create(statement)

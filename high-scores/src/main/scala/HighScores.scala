@@ -6,7 +6,7 @@ object HighScores {
   def personalTop(scores: List[Int]): List[Int] = scores.sorted(Ordering[Int].reverse).slice(0, 3)
 
   def report(scores: List[Int]): String = {
-    val bestScore = personalBest(scores)
+    val bestScore   = personalBest(scores)
     val latestScore = latest(scores)
     if (bestScore == latestScore)
       s"Your latest score was $latestScore. That's your personal best!"

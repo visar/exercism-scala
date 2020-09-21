@@ -6,8 +6,7 @@ object FoodChain {
     def recite(startVerse: Int, endVerse: Int, acc: String): String = {
       if (startVerse > endVerse) {
         acc
-      }
-      else {
+      } else {
         val verse =
           startVerse match {
             case 1 => """I know an old lady who swallowed a fly.
