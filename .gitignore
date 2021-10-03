@@ -4,3 +4,4 @@
 .metals
 .bloop
 target
+.vscode
