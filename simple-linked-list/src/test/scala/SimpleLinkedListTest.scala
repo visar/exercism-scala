@@ -1,9 +1,10 @@
-import org.scalacheck.{Arbitrary}
-import org.scalatest.prop.GeneratorDrivenPropertyChecks
-import org.scalatest.{FlatSpec, Matchers}
+import org.scalacheck.Arbitrary
+import org.scalatest.flatspec.AnyFlatSpec
+import org.scalatest.matchers.should.Matchers
+import org.scalatestplus.scalacheck.ScalaCheckDrivenPropertyChecks
 
 /** @version created manually **/
-class SimpleLinkedListTest extends FlatSpec with Matchers with GeneratorDrivenPropertyChecks {
+class SimpleLinkedListTest extends AnyFlatSpec with Matchers with ScalaCheckDrivenPropertyChecks {
 
   private implicit def arbitrarySimpleLinkedList[T](implicit arbitraryTs: Arbitrary[Array[T]]): Arbitrary[SimpleLinkedList[T]] =
     Arbitrary {
@@ -23,7 +24,6 @@ class SimpleLinkedListTest extends FlatSpec with Matchers with GeneratorDrivenPr
 
   it should "handle two item list" in {
     val list = SimpleLinkedList().add(1).add(2)
-    print(list)
     list.value should be (1)
     list.next.value should be (2)
   }
@@ -35,7 +35,6 @@ class SimpleLinkedListTest extends FlatSpec with Matchers with GeneratorDrivenPr
 
   it should "allow creation from a Seq" in {
     val list = SimpleLinkedList.fromSeq(List(3, 2, 1))
-    println(list)
     list.value should be (3)
     list.next.value should be (2)
     list.next.next.value should be (1)
