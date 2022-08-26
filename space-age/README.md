@@ -1,5 +1,10 @@
 # Space Age
 
+Welcome to Space Age on Exercism's Scala Track.
+If you need help running the tests or submitting your code, check out `HELP.md`.
+
+## Instructions
+
 Given an age in seconds, calculate how old someone would be on:
 
    - Mercury: orbital period 0.2408467 Earth years
@@ -17,19 +22,20 @@ be able to say that they're 31.69 Earth-years old.
 If you're wondering why Pluto didn't make the cut, go watch [this
 youtube video](http://www.youtube.com/watch?v=Z_2gbGXzFbs).
 
-The Scala exercises assume an SBT project scheme. The exercise solution source
-should be placed within the exercise directory/src/main/scala. The exercise
-unit tests can be found within the exercise directory/src/test/scala.
-
-To run the tests simply run the command `sbt test` in the exercise directory.
-
-Please see the [learning](https://exercism.io/tracks/scala/learning) and 
-[installation](https://exercism.io/tracks/scala/installation) pages if you need any help.
-
-
 ## Source
 
-Partially inspired by Chapter 1 in Chris Pine's online Learn to Program tutorial. [http://pine.fm/LearnToProgram/?Chapter=01](http://pine.fm/LearnToProgram/?Chapter=01)
+### Created by
 
-## Submitting Incomplete Solutions
-It's possible to submit an incomplete solution so you can see how others have completed the exercise.
+- @sgrif
+
+### Contributed to by
+
+- @ErikSchierboom
+- @kytrinyx
+- @ppartarr
+- @rajeshpg
+- @ricemery
+
+### Based on
+
+Partially inspired by Chapter 1 in Chris Pine's online Learn to Program tutorial. - http://pine.fm/LearnToProgram/?Chapter=01
